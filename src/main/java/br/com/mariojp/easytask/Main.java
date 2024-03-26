@@ -2,13 +2,15 @@ package br.com.mariojp.easytask;
 
 import java.util.Scanner;
 
+import br.com.mariojp.easytask.core.ITesk;
+import br.com.mariojp.easytask.core.ITeskManager;
 import br.com.mariojp.easytask.data.Task;
 import br.com.mariojp.easytask.data.TaskManager;
 
 public class Main {
 
     private static final Scanner scanner = new Scanner(System.in);
-    private static final TaskManager taskManager = new TaskManager();
+    private static final ITeskManager taskManager = new TaskManager();
     public static void main(String[] args) {
         boolean running = true;
 
@@ -49,7 +51,7 @@ public class Main {
     private static void addTask() {
         System.out.print("Nome da Tarefa: ");
         String name = scanner.nextLine();
-        Task task = new Task(name);
+        ITesk task = new Task(name);
         taskManager.addTask(task);
         System.out.println("Tarefa adicionada com sucesso.");
     }
@@ -70,7 +72,7 @@ public class Main {
 
     private static void listTasks() {
         System.out.println("Tarefas:");
-        for (Task task : taskManager.getTasks()) {
+        for (ITesk task : taskManager.getTasks()) {
             System.out.println(task);
         }
     }

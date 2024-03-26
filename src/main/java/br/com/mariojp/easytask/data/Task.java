@@ -1,6 +1,8 @@
 package br.com.mariojp.easytask.data;
 
-public class Task { 
+import br.com.mariojp.easytask.core.ITesk;
+
+public class Task extends ITesk{ 
     private String name;
     private boolean isComplete;
 
@@ -9,14 +11,17 @@ public class Task {
         this.isComplete = false;
     }
 
+    @Override
     public String getName() {
         return name;
     }
 
+    @Override
     public boolean isComplete() {
         return isComplete;
     }
 
+    @Override
     public void complete() {
         this.isComplete = true;
     }
